@@ -1,4 +1,5 @@
-from collections import defaultdict, deque
+from collections import defaultdict
+from queue import Queue
 import sys
 
 class Graph:
@@ -10,17 +11,17 @@ class Graph:
         self.adj[u].append((v, w))
         self.adj[v].append((u, w))
 
-    # MIN
+    # MIN PATH 
 
     def bfs(self, start, end):
         result = []
-        q = deque()
-        q.append(([start], 0))
+        q = Queue()
+        q.put(([start], 0))
 
         min_hops = sys.maxsize
 
-        while q:
-            path, cost = q.popleft()
+        while not q.empty():
+            path, cost = q.get()
 
             if len(path) > min_hops:
                 continue
@@ -34,19 +35,19 @@ class Graph:
 
             for nxt, wt in self.adj[curr]:
                 if nxt not in path:
-                    q.append((path + [nxt], cost + wt))
+                    q.put((path + [nxt], cost + wt))
 
         return result
     
-    #BFS
+    # BFS
 
     def bfs_all_paths(self, start, end):
         result = []
-        q = deque()
-        q.append(([start], 0))
+        q = Queue()
+        q.put(([start], 0))
 
-        while q:
-            path, cost = q.popleft()
+        while not q.empty():
+            path, cost = q.get()
             curr = path[-1]
 
             if curr == end:
@@ -54,8 +55,8 @@ class Graph:
                 continue
 
             for nxt, wt in self.adj[curr]:
-                if nxt not in path: 
-                    q.append((path + [nxt], cost + wt))
+                if nxt not in path:
+                    q.put((path + [nxt], cost + wt))
 
         return result
     
