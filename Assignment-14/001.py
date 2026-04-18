@@ -30,28 +30,28 @@ def forward_chaining(rules, facts, goal):
 
 print("Forward Chaining = ")
 
-rules1a = [
+rules = [
     ({"P"}, "Q"),          # P → Q
     ({"L", "M"}, "P"),     # L ∧ M → P
     ({"A", "B"}, "L")      # A ∧ B → L
 ]
 
-facts1a = {"A", "B", "M"}  # Given facts
-goal1a = "Q"
+facts = {"A", "B", "M"}  # Given facts
+goal = "Q"
 
-print("Result = ", forward_chaining(rules1a, facts1a, goal1a))
+print("Result = ", forward_chaining(rules, facts, goal))
 
 
 print("\nForward Chaining = ")
 
-rules1b = [
+rulesb = [
     ({"A"}, "B"),          # A → B
     ({"B"}, "C"),          # B → C
     ({"C"}, "D"),          # C → D
     ({"D", "E"}, "F")      # D ∧ E → F
 ]
 
-facts1b = {"A", "E"}  # Given facts
-goal1b = "F"
+factsb = {"A", "E"}  # Given facts
+goalb = "F"
 
-print("Result = ", forward_chaining(rules1b, facts1b, goal1b))
+print("Result = ", forward_chaining(rulesb, factsb, goalb))

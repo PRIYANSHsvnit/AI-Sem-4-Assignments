@@ -36,28 +36,28 @@ def backward_chaining(goal, rules, facts, visited=None):
 
 print("\nBackward Chaining = ")
 
-rules2a = [
+rules = [
     ({"P"}, "Q"),   # P → Q
     ({"R"}, "Q"),   # R → Q
     ({"A"}, "P"),   # A → P
     ({"B"}, "R")    # B → R
 ]
 
-facts2a = {"A", "B"}
-goal2a = "Q"
+facts = {"A", "B"}
+goal = "Q"
 
-print("Result = ", backward_chaining(goal2a, rules2a, facts2a))
+print("Result = ", backward_chaining(goal, rules, facts))
 
 
 print("\nBackward Chaining = ")
 
-rules2b = [
+rulesb = [
     ({"A"}, "B"),        # A → B
     ({"B", "C"}, "D"),   # B ∧ C → D
     ({"E"}, "C")         # E → C
 ]
 
-facts2b = {"A", "E"}
-goal2b = "D"
+factsb = {"A", "E"}
+goalb = "D"
 
-print("Result = ", backward_chaining(goal2b, rules2b, facts2b))
+print("Result = ", backward_chaining(goalb, rulesb, factsb))

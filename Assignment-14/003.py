@@ -65,16 +65,16 @@ print("\nResolution = ")
 # Q → S  => ~Q ∨ S
 # R → S  => ~R ∨ S
 
-kb3a = [
+kb = [
     {"P", "Q"},
     {"~P", "R"},
     {"~Q", "S"},
     {"~R", "S"}
 ]
 
-goal3a = "S"
+goal = "S"
 
-print("Result = ", resolution(kb3a, goal3a))
+print("Result = ", resolution(kb, goal))
 
 print("\nResolution = ")
 
@@ -84,13 +84,13 @@ print("\nResolution = ")
 # S → ~R => ~S ∨ ~R
 # P (fact)
 
-kb3b = [
+kbb = [
     {"~P", "Q"},
     {"~Q", "R"},
     {"~S", "~R"},
     {"P"}
 ]
 
-goal3b = "S"
+goalb = "S"
 
-print("Result = ", resolution(kb3b, goal3b))
+print("Result = ", resolution(kbb, goalb))
